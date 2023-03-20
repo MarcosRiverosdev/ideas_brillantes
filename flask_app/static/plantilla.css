@@ -12,3 +12,32 @@
 .carta {
     margin:5%;
 }
+.bkgd{
+    background-image: radial-gradient(circle at 33.15% -12.87%, #94baff 0, #3c78f2 50%, #003b8a 100%);
+    height: 670px;
+    padding: 40px;
+}
+
+.sofia{
+    font-family: 'Sofia', sans-serif;
+    
+}
+.logo{
+    width: 300px;
+    margin: 5px;
+}
+.logicon{
+    width: 120px;
+    margin: 30px;
+}
+
+#nav{
+    background-image: radial-gradient(circle at 33.15% -12.87%, #94baff 0, #3c78f2 50%, #003b8a 100%);
+    height: 130px;
+    padding: 10px 40px;
+}
+
+.container{
+    display: flex;
+    padding: 100px;
+}

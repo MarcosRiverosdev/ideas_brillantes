@@ -14,25 +14,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a href="/dashboard"><h4 class="text-white">Ideas Brillantes</h4></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <form action="/cerrar_sesion" method="post" class="col mx-auto text-right">
-                <input type="submit" value="Cerrar sesion" class="btn btn-success">
-            </form>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between" id="nav" data-bs-theme="dark">
+        <a href="/dashboard"></a><img src="../static/logo.png" class="logicon" alt=""></a>
+        <div class="col-sm-9 justify-content-center">
+            <h1  class="sofia">Hola {{usuario.alias}}!</h1>
         </div>
-    </nav>
+        <a href="cerrar_sesion" class="btn btn-info">Logout</a>
+</nav>
     <div class="row cabecera">
         <div class="col">
             <form action="/crear_idea" method="post" class="col-6 mx-auto">
-                <div class="col-sm-9 justify-content-center">
-                    <h1>Hola {{usuario.alias}}!</h1>
-                </div>
                 <div class="form-group">
                     <div>
                         <input type="text" name="comentario_f" class="form-control" id="comentario_f" placeholder="Escribe aquí tu idea">
@@ -52,7 +47,7 @@
             <div class="card cuerpo">
                 <div class="row cuerpo">
                     <div class="col-3 text-right">
-                        <p><a href="/usuario/{{idea.usuario_id}}">{{ idea.get_duenho_idea(idea.usuario_id) }}</a> dice:</p>
+                        <p><a href="/usuario/{{idea.usuario_id}}">{{idea.get_duenho_idea(idea.usuario_id) }}</a> dice:</p>
                     </div>
                     <div class="col">
                         <p class="">{{ idea.comentario }}</p>
