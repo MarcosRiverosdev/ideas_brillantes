@@ -37,7 +37,7 @@ def ingresar_usuario():
     session["usuario_id"] = usuario_valido.id
     return redirect('/dashboard')
 
-@app.route('/cerrar_sesion',methods=['POST'])
+@app.route('/cerrar_sesion')
 def cerrar_sesion():
     session.clear()
     return redirect('/')
