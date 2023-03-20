@@ -7,7 +7,7 @@
     <title>Informacion de idea</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/plantilla.css">
+    <link rel="stylesheet" href="../static/plantilla.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Popper JS -->
@@ -16,31 +16,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a href="/dashboard"><h4 class="text-white">Ideas Brillantes</h4></a>
-            <form action="/cerrar_sesion" method="post" class="col mx-auto text-right">
-                <input type="submit" value="Cerrar sesion" class="btn btn-success">
-            </form>
-        </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between" id="nav" data-bs-theme="dark">
+        <a href="/dashboard"><img src="../static/logo.png" class="logicon" alt=""></a>
+        <a href="cerrar_sesion" class="btn btn-info">Logout</a>
     </nav>
     <br>
     <div class="row">
         <div class="col"></div>
-        <div class="col-6 carta">
-            <div class="card">
-                <div class="row">
-                    <div class="col-3 text-right">
-                        <h4><a href="/usuario/{{idea.usuario_id}}">{{ idea.get_duenho_idea(idea.usuario_id) }}</a> dice:</h4>
-                    </div>
-                    <div class="col">
-                        <h5 class="card w-75">{{ idea.comentario }}</h5>
-                    </div>
-                </div>
+        <div class="col-6">
+            <div class="">
+                        <h4><a href="/usuario/{{idea.usuario_id}}">{{ idea.get_duenho_idea(idea.usuario_id) }}</a> dice: {{ idea.comentario }}</h4>
             </div>
-            <p class="text-right">Creado el: {{ idea.created_at }}</p>
+            <p class="text-right text-secondary">Creado el: {{ idea.created_at }}</p>
             <h4 class="text-center">Personas a las que les gusto la idea: </h4>
-            <table class="table table-dark table-striped text-center table-bordered">
+            <table class="table table-striped text-center table-bordered">
                 <thead>
                     <tr>
                         <th>Alias</th>

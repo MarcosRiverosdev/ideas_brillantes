@@ -41,3 +41,10 @@
     display: flex;
     padding: 100px;
 }
+
+.carta{
+    width: 700px;
+    margin-left: 250px;
+    padding: 10px;
+    border-bottom: 1px gray solid;
+}

@@ -19,12 +19,12 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between" id="nav" data-bs-theme="dark">
-        <a href="/dashboard"></a><img src="../static/logo.png" class="logicon" alt=""></a>
+        <a href="/dashboard"><img src="../static/logo.png" class="logicon" alt=""></a>
         <div class="col-sm-9 justify-content-center">
             <h1  class="sofia">Hola {{usuario.alias}}!</h1>
         </div>
         <a href="cerrar_sesion" class="btn btn-info">Logout</a>
-</nav>
+    </nav>
     <div class="row cabecera">
         <div class="col">
             <form action="/crear_idea" method="post" class="col-6 mx-auto">
@@ -40,11 +40,10 @@
             </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-6">
+    <main>
+        <div class="centrar">
             {% for idea in ideas %}
-            <div class="card cuerpo">
+            <div class="carta">
                 <div class="row cuerpo">
                     <div class="col-3 text-right">
                         <p><a href="/usuario/{{idea.usuario_id}}">{{idea.get_duenho_idea(idea.usuario_id) }}</a> dice:</p>
@@ -55,15 +54,15 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="text-right">Creado el: {{ idea.created_at }}</p>
+                        <p class="text-right text-secondary">{{ idea.created_at }}</p>
                         <div class="row">
-                            <div class="col-3 text-center"><a class="btn btn-primary" href="/like/{{usuario.id}}/{{idea.id}}">Me gusta</a></div>
+                            <div class="col-3 text-center"><a class="btn btn-outline-primary px-3" href="/like/{{usuario.id}}/{{idea.id}}">Me gusta  <img src="../static/like.svg"  width="20" alt=""></a></div>
                             <div class="col">
                                 <p class="text-center">A <a href="/idea/{{idea.id}}">{{idea.get_cantidad_likes(idea.id)}} personas </a>les gusto esto</p>
                             </div>
                             {% if idea.usuario_id == usuario.id %}<!-- comprobar si el mensaje mostrado es del usuario en sesion -->
                             <div class="col-2">
-                                <p><a href="/borrar_idea/{{idea.id}}">Borrar</a></p>
+                                <p><a href="/borrar_idea/{{idea.id}}" class="btn btn-outline-primary px-2"><img src="../static/trash.svg" width="20" alt=""></a></p>
                             </div>
                             {% endif %}
                         </div>
@@ -72,7 +71,6 @@
             </div>
             {% endfor %}
         </div>
-        <div class="col"></div>
-    </div>
+    </main>
 </body>
 </html>
